@@ -152,12 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192e56e0a8a04a842a24980671d2eb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTilePrefab: {fileID: 5181583215174831849, guid: 96726c230e207a74fade369afedaaec8, type: 3}
-  mapWidth: 100
-  mapHeight: 100
-  tileSize: 1
-  minBrightness: 0.5
-  maxBrightness: 0.9
+  map: {fileID: 1383737194}
 --- !u!4 &621766072
 Transform:
   m_ObjectHideFlags: 0
@@ -511,6 +506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50524cbf6be518a4bb200ab4fe061d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorTilePrefab: {fileID: 5181583215174831849, guid: 96726c230e207a74fade369afedaaec8, type: 3}
+  mapWidth: 100
+  mapHeight: 100
+  tileSize: 1
+  minBrightness: 0.5
+  maxBrightness: 0.9
 --- !u!1 &2127652861
 GameObject:
   m_ObjectHideFlags: 0
