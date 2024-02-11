@@ -6,12 +6,14 @@ public class MainController : MonoBehaviour
 {
     //TODO: loading screen
     public Map map;
+    public Player1 player1;
 
     // Start is called before the first frame update
     void Start()
     {
         //todo: initialize map here instead and use loading logic
         map.GenerateMap();
+        player1.SpawnPlayer(map);
     }
 
     // Update is called once per frame
