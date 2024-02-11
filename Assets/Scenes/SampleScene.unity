@@ -434,7 +434,7 @@ MonoBehaviour:
   floorTilePrefab: {fileID: 5181583215174831849, guid: 96726c230e207a74fade369afedaaec8, type: 3}
   mapWidth: 100
   mapHeight: 100
-  tileSize: 1
+  tileSize: 2
   minBrightness: 0.5
   maxBrightness: 0.9
 --- !u!1001 &1459650891

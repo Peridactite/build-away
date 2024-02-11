@@ -15,7 +15,7 @@ public class Map : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GenerateMap();
+        
     }
 
     // Update is called once per frame
@@ -26,6 +26,12 @@ public class Map : MonoBehaviour
     
     public void GenerateMap()
     {
+
+        // Scale the player prefab based on the tile size
+        float scaleMultiplier = tileSize / 1.0f; // Assuming the original prefab size is 1.0
+        Vector3 tilePrefabScale = floorTilePrefab.transform.localScale * scaleMultiplier;
+        floorTilePrefab.transform.localScale = tilePrefabScale;
+
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
