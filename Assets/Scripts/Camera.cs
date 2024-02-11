@@ -25,6 +25,10 @@ public class Camera : MonoBehaviour
         // Update the camera's position
         transform.position = smoothedPosition;
         // Make the camera look at the player
-        transform.LookAt(target);
+        //transform.LookAt(target);
+
+
+        //transform.position = target.transform.position + new Vector3(0, 1, -5);
+        //transform.position = target.transform.position + offset;
     }
 }

@@ -13,7 +13,6 @@ public class MainController : MonoBehaviour
     {
         //todo: initialize map here instead and use loading logic
         map.GenerateMap();
-        player1.SpawnPlayer(map);
     }
 
     // Update is called once per frame
