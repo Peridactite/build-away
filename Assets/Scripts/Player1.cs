@@ -15,7 +15,7 @@ public class Player1 : MonoBehaviour
         // Calculate the center position of the map and place center there
         Vector3 centerPosition = new Vector3(map.mapWidth / 2 * map.tileSize, map.tileSize / 2, map.mapHeight / 2 * map.tileSize);
         transform.position = centerPosition;
-        
+
     }
 
     // Update is called once per frame
