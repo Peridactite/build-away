@@ -26,12 +26,6 @@ public class Map : MonoBehaviour
     
     public void GenerateMap()
     {
-
-        // Scale the player prefab based on the tile size
-        float scaleMultiplier = tileSize / 1.0f; // Assuming the original prefab size is 1.0
-        Vector3 tilePrefabScale = floorTilePrefab.transform.localScale * scaleMultiplier;
-        floorTilePrefab.transform.localScale = tilePrefabScale;
-
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
@@ -51,6 +45,9 @@ public class Map : MonoBehaviour
 
                 // Optionally, you can parent the tile to a container object for better organization
                 tile.transform.parent = transform; //TODO try turning this off and see how it effects object heirarchy B) Map should probably have its own gameobject and script. 
+
+                // Scale the tile instance based on the tileSize
+                tile.transform.localScale = new Vector3(tileSize, 1f, tileSize);
             }
         }
     }
