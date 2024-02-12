@@ -21,8 +21,8 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         // Get input from the player
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
         // Calculate movement direction
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;

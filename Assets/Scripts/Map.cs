@@ -23,7 +23,7 @@ public class Map : MonoBehaviour
     {
         
     }
-    
+
     public void GenerateMap()
     {
         for (int x = 0; x < mapWidth; x++)
@@ -33,11 +33,11 @@ public class Map : MonoBehaviour
                 // Calculate position for the tile
                 Vector3 tilePosition = new Vector3(x * tileSize, 0, y * tileSize);
 
-                // Calculate brightness 
+                // Calculate brightness for green color
                 float brightness = Random.Range(minBrightness, maxBrightness);
 
                 // Create color based on brightness
-                Color tileColor = new Color(brightness, brightness, brightness);
+                Color tileColor = new Color(0, brightness, 0); // Green color with varying brightness
 
                 // Create the tile
                 GameObject tile = Instantiate(floorTilePrefab, tilePosition, Quaternion.identity);
