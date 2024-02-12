@@ -12,6 +12,11 @@ public class Map : MonoBehaviour
     public float minBrightness = 0.5f; // Minimum brightness for the grey tiles
     public float maxBrightness = 0.9f; // Maximum brightness for the grey tiles
 
+    public GameObject woodPrefab; // Reference to the wood node prefab
+    public GameObject stonePrefab; // Reference to the stone node prefab
+    public GameObject ratNestPrefab; // Reference to the ratNestPrefab
+    public GameObject flintPrefab; // Reference to the flintPrefab
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +31,12 @@ public class Map : MonoBehaviour
 
     public void GenerateMap()
     {
+        GameObject[] resourceNodePrefabs = { woodPrefab, stonePrefab, ratNestPrefab, flintPrefab };// Create an array of resource node prefabs
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
+                ///GENERATE FLOOR///
                 // Calculate position for the tile
                 Vector3 tilePosition = new Vector3(x * tileSize, 0, y * tileSize);
 
@@ -43,11 +50,20 @@ public class Map : MonoBehaviour
                 GameObject tile = Instantiate(floorTilePrefab, tilePosition, Quaternion.identity);
                 tile.GetComponent<Renderer>().material.color = tileColor;
 
-                // Optionally, you can parent the tile to a container object for better organization
-                tile.transform.parent = transform; //TODO try turning this off and see how it effects object heirarchy B) Map should probably have its own gameobject and script. 
-
+                tile.transform.parent = transform; //parent the tile to a container object for better organization
                 // Scale the tile instance based on the tileSize
                 tile.transform.localScale = new Vector3(tileSize, 1f, tileSize);
+
+                ///GENERATE RESOURCES///
+                // Check if a resource should be generated on this tile
+                if (Random.value < 0.1f) // Adjust the probability as needed
+                {
+                    // Generate a resource node one level above the floor tile
+                    Vector3 nodePosition = tilePosition + Vector3.up; // One level above the tile
+                    GameObject resourceNodePrefab = resourceNodePrefabs[Random.Range(0, resourceNodePrefabs.Length)]; // Get a random resource node from array
+                    GameObject resourceInstance = Instantiate(resourceNodePrefab, nodePosition, Quaternion.identity);
+                    resourceInstance.transform.parent = transform; //parent resource to map object
+                }
             }
         }
     }
